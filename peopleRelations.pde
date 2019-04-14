@@ -10,5 +10,3 @@ void draw() {
   one.appear();
   one.walk();
 }
-
-//testing git
