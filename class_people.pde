@@ -1,17 +1,19 @@
-class people {
+class People {
   PVector pos = new PVector(0, 0);
   PVector vel = new PVector(0, 0);
   PVector acc = new PVector(0, 0);
   float siz;
-  float velControl = 3;
+  float velControl = 0.6;
+  float accControl = 0.3;
 
-  people(float posX, float posY, float Tsiz) {
+  People(float posX, float posY, float Tsiz) {
     pos.x = posX;
     pos.y = posY;
     siz = Tsiz;
   }
 
   void appear() {
+    
     fill(255);
     noStroke();
     ellipse(pos.x, pos.y, siz, siz);
@@ -23,14 +25,14 @@ class people {
 
     //Random acceleration
 
-    acc.x = random(-0.4, 0.4);
-    acc.y = random(-0.4, 0.4);
+    acc.x = random(-accControl, accControl);
+    acc.y = random(-accControl, accControl);
 
-    //Inproving randomness ---> work on progress
-
-    //acc.x = randomGaussian();
-    //acc.y = randomGaussian();
-
+    //Improving randomness ---> work on progress
+    
+    //acc.x = map(randomGaussian(), 0, 1, -accControl, accControl);
+    //acc.y = map(randomGaussian(), 0, 1, -accControl, accControl);
+    
 
     //Srcreen edges control
 
