@@ -1,13 +1,13 @@
 People[] person;
-int population = 10000;
+int population = 500;
 
 
 void setup() {
-  //size(500, 500);
-  fullScreen();
+  size(800, 800, FX2D);
+  //fullScreen();
   person = new People[population];
   for (int i = 0; i < population; i++) {
-    person[i] = new People(width/2, height/2, random(2,3));
+    person[i] = new People(random(width), random(height), 3, 255);
   }
 }
 
@@ -16,6 +16,13 @@ void draw() {
   for (int i = 0; i < population; i++) {
     person[i].appear();
     person[i].walk();
+    for (int j = 0; j < population; j++) {
+      if ( dist(person[i].positionX(), person[i].positionY(), person[j].positionX(), person[j].positionY()) < 50) {
+        stroke(255, 0, 0);
+        strokeWeight(0.2);
+        line(person[i].positionX(), person[i].positionY(), person[j].positionX(), person[j].positionY());
+        noStroke();
+      }
+    }
   }
-  println(noise(10));
 }

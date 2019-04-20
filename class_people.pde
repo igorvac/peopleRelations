@@ -2,19 +2,21 @@ class People {
   PVector pos = new PVector(0, 0);
   PVector vel = new PVector(0, 0);
   PVector acc = new PVector(0, 0);
+  int colr;
   float siz;
-  float velControl = 0.6;
+  float velControl = 2;
   float accControl = 0.3;
 
-  People(float posX, float posY, float Tsiz) {
+  People(float posX, float posY, float Tsiz, int Tcolr) {
     pos.x = posX;
     pos.y = posY;
     siz = Tsiz;
+    colr = Tcolr;
   }
 
   void appear() {
     
-    fill(255);
+    fill(colr);
     noStroke();
     ellipse(pos.x, pos.y, siz, siz);
   }
@@ -68,5 +70,12 @@ class People {
     }
 
     //println(vel.x + " " + vel.y);
+  }
+  
+  float positionX(){
+    return pos.x;
+  }
+  float positionY(){
+    return pos.y;
   }
 }
